@@ -6,6 +6,5 @@ int WinMain()
 {
     int a, b, c;
     scanf("%d %d %d", &a, &b, &c);
-    // int f = a + b + c;
     printf("%d\n", a + b + c);
 }
