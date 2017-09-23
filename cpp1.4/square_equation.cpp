@@ -6,7 +6,7 @@ int WinMain()
 {
 
     printf("enter a & b & c for 'ax^2+bx+c=0':");
-    float a = 0, b = 0, c = 0;
+    float a, b, c;
     scanf("%f %f %f", &a, &b, &c);
     float D = pow(b, 2) - 4 * a * c;
 
