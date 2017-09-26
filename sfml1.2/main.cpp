@@ -77,15 +77,13 @@ int main()
                 window.close();
         }
         window.clear();
-        window.draw(A5);
         window.draw(E1);
         window.draw(E2);
         window.draw(E3);
         window.draw(E4);
-        window.draw(A4);
-        window.draw(A3);
         window.draw(A1);
         window.draw(A2);
+        window.draw(A3);
         window.draw(I1);
         window.draw(I2);
         window.draw(I3);
