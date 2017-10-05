@@ -31,10 +31,10 @@ int main()
     for (int i = 0; i < 800; ++i)
     {
         float angle = 2 * M_PI * i / 800;
-        float _radius = 200 * sin(6 * angle);
+        float radiusRose = 200 * sin(6 * angle);
        Vector2f point = {
-            _radius * sin(angle),
-            _radius * cos(angle)};
+            radiusRose * sin(angle),
+            radiusRose * cos(angle)};
 
         rose.setPoint(i, point);
     }
@@ -51,9 +51,10 @@ int main()
         }
 
         float time = clock.getElapsedTime().asSeconds();
+		float phase = time * 2 * M_PI;
 
-        position.x = radius * cos((2 * M_PI * time) / period);
-        position.y = radius * sin((2 * M_PI * time) / period);
+        position.x = radius * cos((phase) / period);
+        position.y = radius * sin((phase) / period);
 
 
         rose.setPosition(center + position);
