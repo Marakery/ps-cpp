@@ -28,9 +28,9 @@ int main()
     rose.setFillColor(Color(220, 20, 60));
     rose.setPointCount(800);
 
-    for (int i = 0; i < 800; ++i)
+    for (int i = 0; i < pointCount; ++i)
     {
-        float angle = 2 * M_PI * i / 800;
+        float angle = 2 * M_PI * i / pointCount;
         float radiusRose = 200 * sin(6 * angle);
        Vector2f point = {
             radiusRose * sin(angle),
