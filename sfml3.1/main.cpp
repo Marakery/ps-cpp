@@ -38,7 +38,7 @@ void update(const sf::Vector2f& mousePosition, sf::ConvexShape& arrow, float& dt
 	const float arrowRotation = arrow.getRotation();
 	const float mouseRotation = toDegrees(angle);
 	const float maxRotation = arrowSpeed * dt;
-	float nextRotation = ((mouseRotation - maxRotation), maxRotation);
+	float nextRotation = std::min((mouseRotation - maxRotation), maxRotation);
 	if (mouseRotation < arrowRotation)
 	{
 		if ((mouseRotation + 180) < arrowRotation)
