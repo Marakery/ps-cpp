@@ -49,7 +49,9 @@ void update(vector<Ball>& balls, float &dt)
 void init(vector<Ball>& balls)
 {
 	Color colorArray[9] = { Color(0,204,51), Color(51,0,255), Color(0,0,255), Color(255,153,0), Color(255,255,51), Color(204,153,255), Color(255,51,51), Color(204,51,51), Color(153,255,255) };
+
 	srand(time(NULL));
+	const vector<Vector2f> speed = { { -254.f, 92.f },{ 70.f, 125.f },{ 300.f, -170.f },{ 100.f, -250.f } };
 	for (size_t i = 0; i < 4; ++i)
 	{
 		Color first = colorArray[rand() % 9];
@@ -58,9 +60,10 @@ void init(vector<Ball>& balls)
 		balls[i].shape.setFillColor(modul);
 		balls[i].shape.setOrigin(BALL_SIZE, BALL_SIZE);
 		balls[i].shape.setRadius(BALL_SIZE);
-		float randomSpeedX = rand() % 500;
+		/*float randomSpeedX = rand() % 500;
 		float randomSpeedY = rand() % 500;
-		balls[i].speed = { randomSpeedX, randomSpeedY };
+		balls[i].speed = { randomSpeedX, randomSpeedY };*/
+		balls[i].speed = speed[i];
 	}
 }
 
