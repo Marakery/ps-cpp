@@ -56,8 +56,8 @@ void init(vector<Ball>& balls)
 	{
 		Color first = colorArray[rand() % 9];
 		Color second = colorArray[rand() % 9];
-		Color modul = Color((first.r + second.r) / 2, (first.g + second.g) / 2, (first.b + second.b) / 2);
-		balls[i].shape.setFillColor(modul);
+		Color generated = Color((first + second).r / 2, (first + second).g / 2, (first + second).b / 2);
+		balls[i].shape.setFillColor(generated);
 		balls[i].shape.setOrigin(BALL_SIZE, BALL_SIZE);
 		balls[i].shape.setRadius(BALL_SIZE);
 		/*float randomSpeedX = rand() % 500;
