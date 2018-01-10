@@ -1,13 +1,11 @@
 #include <SFML/Graphics.hpp>
-#include <SFML/System.hpp>
+#include <cmath>
 #include <iostream>
-#define _USE_MATH_DEFINES
-#include <math.h>
+#include <algorithm>
+
 
 void onMouseMove(const sf::Event::MouseMoveEvent &event, sf::Vector2f &mousePosition)
 {
-	std::cout << "mouse x=" << event.x << ", y=" << event.y << std::endl;
-
 	mousePosition = { float(event.x), float(event.y) };
 }
 
@@ -26,19 +24,24 @@ float toDegrees(float radians)
 	return float(double(radians) * 180.0 / M_PI);
 }
 
+
 void update(const sf::Vector2f& mousePosition, sf::ConvexShape& arrow, float& dt)
 {
 	const sf::Vector2f delta = mousePosition - arrow.getPosition();
 	float angle = atan2(delta.y, delta.x);
-	const float arrowSpeed = 20;
+
 	if (angle < 0)
 	{
 		angle = angle + 2 * M_PI;
 	}
+
 	const float arrowRotation = arrow.getRotation();
 	const float mouseRotation = toDegrees(angle);
+	const float arrowSpeed = 15;
 	const float maxRotation = arrowSpeed * dt;
 	float nextRotation = ((mouseRotation - maxRotation), maxRotation);
+
+
 	if (mouseRotation < arrowRotation)
 	{
 		if ((mouseRotation + 180) < arrowRotation)
@@ -61,6 +64,7 @@ void update(const sf::Vector2f& mousePosition, sf::ConvexShape& arrow, float& dt
 			arrow.setRotation(arrowRotation + nextRotation);
 		}
 	}
+
 }
 
 void pollEvents(sf::RenderWindow &window, sf::Vector2f &mousePosition)
@@ -92,8 +96,13 @@ void redrawFrame(sf::RenderWindow& window, sf::ConvexShape& arrow)
 
 int main()
 {
-	sf::RenderWindow window(sf::VideoMode(900, 600), "Arrow follow mouse");
 
+	constexpr unsigned WINDOW_WIDTH = 800;
+	constexpr unsigned WINDOW_HEIGHT = 600;
+
+	sf::ContextSettings settings;
+	settings.antialiasingLevel = 8;
+	sf::RenderWindow window(sf::VideoMode(900, 600), "Arrow folow mouse", sf::Style::Default, settings);
 	sf::ConvexShape arrow;
 	sf::Vector2f mousePosition;
 	sf::Clock clock;
