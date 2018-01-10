@@ -1,7 +1,7 @@
 #include <SFML/Graphics.hpp>
+#include <SFML/System.hpp>
 #include <iostream>
-#define _USE_MATH_DEFINES
-#include <math.h>
+#include <cmath.h>
 
 using namespace sf;
 
@@ -56,7 +56,7 @@ void initEye(Eye &eye, const float x, const float y)
 {
 	eye.position = { x, y };
 
-	eye.whiteEye.setFillColor(Color(0xFF, 0xFF, 0xFF));
+	eye.whiteEye.setFillColor(Color::White);
 
 	constexpr int pointCount = 200;
 	Vector2f ellipseRadius = { 50.f, 100.f };
@@ -98,6 +98,7 @@ void pollEvents(RenderWindow &window, Vector2f &mousePosition)
 		}
 	}
 }
+
 void update(const Vector2f &mousePosition, Eye &LeftEye, Eye &RightEye)
 {
 	Vector2f delta = mousePosition - LeftEye.position;
