@@ -102,7 +102,7 @@ int main()
 
 	sf::ContextSettings settings;
 	settings.antialiasingLevel = 8;
-	sf::RenderWindow window(sf::VideoMode(900, 600), "Arrow folow mouse", sf::Style::Default, settings);
+	sf::RenderWindow window(sf::VideoMode({WINDOW_WIDTH, WINDOW_HEIGHT}), "Arrow folow mouse", sf::Style::Default, settings);
 	sf::ConvexShape arrow;
 	sf::Vector2f mousePosition;
 	sf::Clock clock;
