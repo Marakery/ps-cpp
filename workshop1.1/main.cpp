@@ -18,7 +18,6 @@ void init(ConvexShape &arrow)
 	arrow.setFillColor(Color::Yellow);
 	arrow.setOutlineColor(Color::Black);
 	arrow.setOutlineThickness(3);
-	arrow.setRotation(-20);
 
 }
 
