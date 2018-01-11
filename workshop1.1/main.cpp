@@ -42,7 +42,7 @@ int main()
 
 	while (window.isOpen())
 	{
-		sf::Event event;
+		Event event;
 		while (window.pollEvent(event))
 		{
 			if (event.type == Event::Closed)
