@@ -21,7 +21,7 @@ void init(ConvexShape &arrow)
 
 }
 
-void redrawFrame(sf::RenderWindow &window, sf::ConvexShape &arrow)
+void redrawFrame(RenderWindow &window, ConvexShape &arrow)
 {
 	window.clear(Color::White);
 	window.draw(arrow);
@@ -33,10 +33,10 @@ int main()
 	constexpr unsigned WINDOW_WIDTH = 800;
 	constexpr unsigned WINDOW_HEIGHT = 600;
 
-	sf::ContextSettings settings;
+	ContextSettings settings;
 	settings.antialiasingLevel = 8;
-	sf::RenderWindow window(sf::VideoMode({ WINDOW_WIDTH, WINDOW_HEIGHT }), "Yellow arrow", sf::Style::Default, settings);
-	sf::ConvexShape arrow;
+	RenderWindow window(VideoMode({ WINDOW_WIDTH, WINDOW_HEIGHT }), "Yellow arrow", Style::Default, settings);
+	ConvexShape arrow;
 
 	init(arrow);
 
@@ -45,7 +45,7 @@ int main()
 		sf::Event event;
 		while (window.pollEvent(event))
 		{
-			if (event.type == sf::Event::Closed)
+			if (event.type == Event::Closed)
 			{
 				window.close();
 			}
